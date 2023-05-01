@@ -1,7 +1,7 @@
 from flask import Flask, request
 from src.sched.scheduler import InferenceScheduler
 from src.parser.requestparser import RequestParser
-from src.inference import infer
+from inference.inference import infer
 
 app = Flask(__name__)
 scheduler = InferenceScheduler()

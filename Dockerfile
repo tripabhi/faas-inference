@@ -4,6 +4,9 @@ FROM python:3.8-slim-buster
 
 WORKDIR /faas-inference
 
+VOLUME data
+ENV DATA_DIR=data
+
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
