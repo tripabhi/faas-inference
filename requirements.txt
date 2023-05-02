@@ -1,3 +1,6 @@
-transformers
-torch
-flask
+pandas
+numpy
+matplotlib
+statsmodels
+httpx
+memory_profiler

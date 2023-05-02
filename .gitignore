@@ -5,6 +5,9 @@ __pycache__/
 .vscode
 # C extensions
 *.so
+# Ignore pytorch model
+*.pth
+*.pt
 
 # Distribution / packaging
 .Python

@@ -1,5 +1,7 @@
 from flask import Flask, request
+from gevent.pywsgi import WSGIServer
 from src.sched.scheduler import InferenceScheduler
+#from src.sched.scheduler_process import InferenceScheduler
 from src.parser.requestparser import RequestParser
 from src.inference.inference import infer
 
@@ -29,7 +31,9 @@ def serve():
 
 if __name__ == "__main__":
     try:
-        app.run(debug=True, port=5000)
+        #app.run(host="0.0.0.0", debug=True, port=5000)
+        http_server = WSGIServer(('0.0.0.0', 5000), app)
+        http_server.serve_forever()
     except Exception as e:
         print("Exception occurred : ", e)
     finally:
