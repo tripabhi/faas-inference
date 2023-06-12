@@ -11,7 +11,9 @@ http://10.52.0.189:5000/serve
 
 # Example: curl -X POST -H "Content-Type: application/json" -d '{"data": "MESSAGE"}' http://GATEWAY_IP:PORT/serve
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"data": "MESSAGE"}' http://10.52.0.189:5000/serve
+curl -X POST -H "Content-Type: application/json" -d '{"data": "MESSAGE"}' http://127.0.0.1:7000/infer
+curl -X POST -H "Content-Type: application/json" -d '{"data": "MESSAGE"}' http://10.52.0.201:7000/infer
 
-ab -n 100 -c 100 -e data.csv -p payload.json -T "application/json" http://10.52.0.189:5000/serve
+ab -n 100 -c 100 -e data.csv -p /home/cc/anish/faas-inference/loadgen/payload.json -T "application/json" http://10.52.0.201:7000/infer
 ```
+sudo ln -s /home/cc/anish/faas-inference/loadgen/script.sh /usr/bin/loadscript
