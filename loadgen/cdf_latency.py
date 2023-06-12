@@ -3,10 +3,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from statsmodels.distributions.empirical_distribution import ECDF
+import os
 
 concurrency_levels = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]  # Adjust the concurrency levels as needed
 endpoints = ['cpu', 'infer']
 max_value = 10000
+directory = '/home/cc/anish/faas-inference/results/server'
 
 # Loop over each concurrency level
 for concurrency in concurrency_levels:
@@ -20,6 +22,7 @@ for concurrency in concurrency_levels:
     for endpoint in endpoints:
         # Load the data from the CSV file into a NumPy array
         filename = f'data_{endpoint}_concurrency_{concurrency}.csv'
+        filename = os.path.join(directory, filename)
         data = np.genfromtxt(filename, delimiter=',', names=['percentage', 'time_ms'], skip_header=1)
 
         # Clean the data and convert abnormal values
@@ -49,7 +52,8 @@ for concurrency in concurrency_levels:
     ax.legend()
 
     # Save the plot as a PNG file
-    plt.savefig(f'cdf_distribution_concurrency_{concurrency}.png')
+    save_file = f'cdf_distribution_concurrency_{concurrency}.png'
+    plt.savefig(os.path.join(directory, save_file))
 
     # Show the plot (optional)
     plt.show()
