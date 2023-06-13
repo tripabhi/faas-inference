@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from statsmodels.distributions.empirical_distribution import ECDF
 import os
 
-concurrency_levels = [10, 50, 100, 200, 500, 1000]  # Adjust the concurrency levels as needed
+concurrency_levels = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]  # Adjust the concurrency levels as needed
 line_styles = ['--', '-', ':', ':']
 markers = ['P', 'd', '*', 'x'] 
 # endpoints = ['cpu', 'infer']

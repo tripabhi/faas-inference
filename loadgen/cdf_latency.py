@@ -7,7 +7,7 @@ import os
 
 concurrency_levels = [5, 10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100]  # Adjust the concurrency levels as needed
 endpoints = ['cpu', 'infer']
-max_value = 10000
+max_value = 50000
 directory = '/home/cc/anish/faas-inference/results/server'
 
 # Loop over each concurrency level
